@@ -2,7 +2,6 @@ let page;
 
 beforeEach(async () => {
   page = await browser.newPage();
-  //await page.goto("https://github.com/team");
 });
 
 afterEach(() => {
@@ -14,12 +13,12 @@ describe("Github page tests", () => {
     await page.goto("https://github.com/team");
   });
   
-  test("The h1 header content'", async () => {
+  test("The h1 header content", async () => {
     const firstLink = await page.$("header div div a");
     await firstLink.click();
     await page.waitForSelector('h1');
     const title2 = await page.title();
-    expect(title2).toEqual('GitHub: Where the world builds software · GitHub');
+    expect(title2).toEqual("GitHub for teams · Build like the best teams on the planet · GitHub");
   }, 10000);
 
   test("The first link attribute", async () => {
